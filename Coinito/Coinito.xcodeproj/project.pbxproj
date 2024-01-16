@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 56;
+	objectVersion = 60;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -11,6 +11,7 @@
 		BD1EE0FF2B572BA200304CCF /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD1EE0FE2B572BA200304CCF /* ContentView.swift */; };
 		BD1EE1012B572BA300304CCF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BD1EE1002B572BA300304CCF /* Assets.xcassets */; };
 		BD1EE1042B572BA300304CCF /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BD1EE1032B572BA300304CCF /* Preview Assets.xcassets */; };
+		BD1EE10C2B572C7800304CCF /* Dependencies in Frameworks */ = {isa = PBXBuildFile; productRef = BD1EE10B2B572C7800304CCF /* Dependencies */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BD1EE10C2B572C7800304CCF /* Dependencies in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -83,6 +85,9 @@
 			dependencies = (
 			);
 			name = Coinito;
+			packageProductDependencies = (
+				BD1EE10B2B572C7800304CCF /* Dependencies */,
+			);
 			productName = Coinito;
 			productReference = BD1EE0F92B572BA200304CCF /* Coinito.app */;
 			productType = "com.apple.product-type.application";
@@ -111,6 +116,9 @@
 				Base,
 			);
 			mainGroup = BD1EE0F02B572BA200304CCF;
+			packageReferences = (
+				BD1EE10A2B572C7800304CCF /* XCLocalSwiftPackageReference "../Dependencies" */,
+			);
 			productRefGroup = BD1EE0FA2B572BA200304CCF /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -344,6 +352,20 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCLocalSwiftPackageReference section */
+		BD1EE10A2B572C7800304CCF /* XCLocalSwiftPackageReference "../Dependencies" */ = {
+			isa = XCLocalSwiftPackageReference;
+			relativePath = ../Dependencies;
+		};
+/* End XCLocalSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		BD1EE10B2B572C7800304CCF /* Dependencies */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = Dependencies;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = BD1EE0F12B572BA200304CCF /* Project object */;
 }
