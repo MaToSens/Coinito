@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 56;
+	objectVersion = 60;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -11,6 +11,16 @@
 		BD1EE0FF2B572BA200304CCF /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD1EE0FE2B572BA200304CCF /* ContentView.swift */; };
 		BD1EE1012B572BA300304CCF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BD1EE1002B572BA300304CCF /* Assets.xcassets */; };
 		BD1EE1042B572BA300304CCF /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BD1EE1032B572BA300304CCF /* Preview Assets.xcassets */; };
+		BD1EE10C2B572C7800304CCF /* Dependencies in Frameworks */ = {isa = PBXBuildFile; productRef = BD1EE10B2B572C7800304CCF /* Dependencies */; };
+		BD1EE10F2B572E5600304CCF /* Assembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD1EE10E2B572E5600304CCF /* Assembly.swift */; };
+		BD1EE1112B572E6F00304CCF /* AssemblyShared.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD1EE1102B572E6F00304CCF /* AssemblyShared.swift */; };
+		BD1EE1172B572EB100304CCF /* AssemblyMocks.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD1EE1122B572E8800304CCF /* AssemblyMocks.swift */; };
+		BD1EE1182B572EB100304CCF /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD1EE0FE2B572BA200304CCF /* ContentView.swift */; };
+		BD1EE11A2B572EB100304CCF /* AssemblyShared.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD1EE1102B572E6F00304CCF /* AssemblyShared.swift */; };
+		BD1EE11B2B572EB100304CCF /* CoinitoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD1EE0FC2B572BA200304CCF /* CoinitoApp.swift */; };
+		BD1EE11D2B572EB100304CCF /* Dependencies in Frameworks */ = {isa = PBXBuildFile; productRef = BD1EE1152B572EB100304CCF /* Dependencies */; };
+		BD1EE11F2B572EB100304CCF /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BD1EE1032B572BA300304CCF /* Preview Assets.xcassets */; };
+		BD1EE1202B572EB100304CCF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BD1EE1002B572BA300304CCF /* Assets.xcassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -19,6 +29,10 @@
 		BD1EE0FE2B572BA200304CCF /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		BD1EE1002B572BA300304CCF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BD1EE1032B572BA300304CCF /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		BD1EE10E2B572E5600304CCF /* Assembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Assembly.swift; sourceTree = "<group>"; };
+		BD1EE1102B572E6F00304CCF /* AssemblyShared.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssemblyShared.swift; sourceTree = "<group>"; };
+		BD1EE1122B572E8800304CCF /* AssemblyMocks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssemblyMocks.swift; sourceTree = "<group>"; };
+		BD1EE1242B572EB100304CCF /* CoinitoMocks.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CoinitoMocks.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -26,6 +40,15 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BD1EE10C2B572C7800304CCF /* Dependencies in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BD1EE11C2B572EB100304CCF /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BD1EE11D2B572EB100304CCF /* Dependencies in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -44,6 +67,7 @@
 			isa = PBXGroup;
 			children = (
 				BD1EE0F92B572BA200304CCF /* Coinito.app */,
+				BD1EE1242B572EB100304CCF /* CoinitoMocks.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -53,6 +77,7 @@
 			children = (
 				BD1EE0FC2B572BA200304CCF /* CoinitoApp.swift */,
 				BD1EE0FE2B572BA200304CCF /* ContentView.swift */,
+				BD1EE10D2B572E3C00304CCF /* Assemblies */,
 				BD1EE1002B572BA300304CCF /* Assets.xcassets */,
 				BD1EE1022B572BA300304CCF /* Preview Content */,
 			);
@@ -65,6 +90,16 @@
 				BD1EE1032B572BA300304CCF /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		BD1EE10D2B572E3C00304CCF /* Assemblies */ = {
+			isa = PBXGroup;
+			children = (
+				BD1EE10E2B572E5600304CCF /* Assembly.swift */,
+				BD1EE1102B572E6F00304CCF /* AssemblyShared.swift */,
+				BD1EE1122B572E8800304CCF /* AssemblyMocks.swift */,
+			);
+			path = Assemblies;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -83,8 +118,31 @@
 			dependencies = (
 			);
 			name = Coinito;
+			packageProductDependencies = (
+				BD1EE10B2B572C7800304CCF /* Dependencies */,
+			);
 			productName = Coinito;
 			productReference = BD1EE0F92B572BA200304CCF /* Coinito.app */;
+			productType = "com.apple.product-type.application";
+		};
+		BD1EE1142B572EB100304CCF /* CoinitoMocks */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BD1EE1212B572EB100304CCF /* Build configuration list for PBXNativeTarget "CoinitoMocks" */;
+			buildPhases = (
+				BD1EE1162B572EB100304CCF /* Sources */,
+				BD1EE11C2B572EB100304CCF /* Frameworks */,
+				BD1EE11E2B572EB100304CCF /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = CoinitoMocks;
+			packageProductDependencies = (
+				BD1EE1152B572EB100304CCF /* Dependencies */,
+			);
+			productName = Coinito;
+			productReference = BD1EE1242B572EB100304CCF /* CoinitoMocks.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -111,11 +169,15 @@
 				Base,
 			);
 			mainGroup = BD1EE0F02B572BA200304CCF;
+			packageReferences = (
+				BD1EE10A2B572C7800304CCF /* XCLocalSwiftPackageReference "../Dependencies" */,
+			);
 			productRefGroup = BD1EE0FA2B572BA200304CCF /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
 				BD1EE0F82B572BA200304CCF /* Coinito */,
+				BD1EE1142B572EB100304CCF /* CoinitoMocks */,
 			);
 		};
 /* End PBXProject section */
@@ -130,6 +192,15 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		BD1EE11E2B572EB100304CCF /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BD1EE11F2B572EB100304CCF /* Preview Assets.xcassets in Resources */,
+				BD1EE1202B572EB100304CCF /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -138,7 +209,20 @@
 			buildActionMask = 2147483647;
 			files = (
 				BD1EE0FF2B572BA200304CCF /* ContentView.swift in Sources */,
+				BD1EE10F2B572E5600304CCF /* Assembly.swift in Sources */,
+				BD1EE1112B572E6F00304CCF /* AssemblyShared.swift in Sources */,
 				BD1EE0FD2B572BA200304CCF /* CoinitoApp.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BD1EE1162B572EB100304CCF /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BD1EE1172B572EB100304CCF /* AssemblyMocks.swift in Sources */,
+				BD1EE1182B572EB100304CCF /* ContentView.swift in Sources */,
+				BD1EE11A2B572EB100304CCF /* AssemblyShared.swift in Sources */,
+				BD1EE11B2B572EB100304CCF /* CoinitoApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -322,6 +406,64 @@
 			};
 			name = Release;
 		};
+		BD1EE1222B572EB100304CCF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"Coinito/Preview Content\"";
+				DEVELOPMENT_TEAM = 8S5QQT5ZUQ;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.matoosens.Coinito;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		BD1EE1232B572EB100304CCF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"Coinito/Preview Content\"";
+				DEVELOPMENT_TEAM = 8S5QQT5ZUQ;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.matoosens.Coinito;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -343,7 +485,34 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
+		BD1EE1212B572EB100304CCF /* Build configuration list for PBXNativeTarget "CoinitoMocks" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BD1EE1222B572EB100304CCF /* Debug */,
+				BD1EE1232B572EB100304CCF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 /* End XCConfigurationList section */
+
+/* Begin XCLocalSwiftPackageReference section */
+		BD1EE10A2B572C7800304CCF /* XCLocalSwiftPackageReference "../Dependencies" */ = {
+			isa = XCLocalSwiftPackageReference;
+			relativePath = ../Dependencies;
+		};
+/* End XCLocalSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		BD1EE10B2B572C7800304CCF /* Dependencies */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = Dependencies;
+		};
+		BD1EE1152B572EB100304CCF /* Dependencies */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = Dependencies;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = BD1EE0F12B572BA200304CCF /* Project object */;
 }
