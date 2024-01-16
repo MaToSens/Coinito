@@ -6,9 +6,10 @@
 //
 
 import DependencyInjection
+import HomeMocks
 
 extension Assemblies {
     static func setupDependencies() {
-        // Inject
+        HomeMocks.Dependencies.inject()
     }
 }

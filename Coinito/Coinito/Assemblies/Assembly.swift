@@ -6,10 +6,11 @@
 //
 
 import DependencyInjection
+import Home
 
 extension Assemblies {
     static func setupDependencies() {
-        // Inject
+        Home.Dependencies.inject()
     }
 }
 

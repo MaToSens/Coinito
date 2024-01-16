@@ -8,7 +8,7 @@
 import SwiftUI
 
 public struct AppFont {
-    static func registerFonts() {
+    public static func registerFonts() {
         JakartaSans
             .allCases
             .forEach {

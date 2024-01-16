@@ -14,14 +14,14 @@ let package = Package(
         ),
     ],
     dependencies: [
-        .package(path: "Coin")
+        .package(path: "Home")
     ],
     targets: [
         .target(
             name: "Dependencies",
             dependencies: [
-                .product(name: "Coin", package: "Coin"),
-                .product(name: "CoinMocks", package: "Coin")
+                .product(name: "Home", package: "Home"),
+                .product(name: "HomeMocks", package: "Home")
             ]
         )
     ]
