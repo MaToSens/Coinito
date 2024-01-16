@@ -1,5 +1,5 @@
 //
-//  Font.swift
+//  Font+Extensions.swift
 //
 //
 //  Created by MaTooSens on 16/01/2024.
