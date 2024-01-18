@@ -38,7 +38,7 @@ public extension Double {
     }
     
     func asNumberString() -> String {
-        String(format: "%.2f", self)
+        String(format: "%.1f", self)
     }
     
     func asPercentString() -> String {
@@ -69,7 +69,7 @@ public extension Optional where Wrapped == Double {
     
     func asNumberString() -> String {
         if let unwrappedValue = self {
-            return String(format: "%.2f", unwrappedValue)
+            return String(format: "%.1f", unwrappedValue)
         } else {
             return "N/A"
         }
