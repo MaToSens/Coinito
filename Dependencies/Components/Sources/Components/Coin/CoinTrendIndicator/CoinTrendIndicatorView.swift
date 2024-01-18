@@ -9,7 +9,7 @@ import Design
 import SwiftUI
 import Utilities
 
-public struct CoinTrendIndicator: View {
+public struct CoinTrendIndicatorView: View {
     private let trendPercentage: Double
     
     public init(_ trendPercentage: Double) {

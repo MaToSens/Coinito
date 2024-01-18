@@ -44,4 +44,5 @@ public struct ColorTheme {
     public let secondary = Color(hex: "828D9C")
     public let componentBackground = Color(hex: "F9FAFB")
     public let accent = Color(hex: "1354FE")
+    public let red = Color(hex: "FF0000")
 }

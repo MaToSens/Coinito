@@ -1,5 +1,5 @@
 //
-//  AppIdentity.swift
+//  AppIdentityView.swift
 //
 //
 //  Created by MaTooSens on 18/01/2024.
@@ -7,15 +7,15 @@
 
 import SwiftUI
 
-public struct AppIdentity: View {
-    public enum IdentityViewType {
+public struct AppIdentityView: View {
+    public enum ViewType {
         case logo
         case logoWithName
     }
     
-    private var viewType: IdentityViewType
+    private var viewType: ViewType
     
-    public init(_ viewType: IdentityViewType = .logo) {
+    public init(_ viewType: ViewType = .logo) {
         self.viewType = viewType
     }
     
