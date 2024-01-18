@@ -5,16 +5,18 @@
 //  Created by MaTooSens on 18/01/2024.
 //
 
+import Design
 import SwiftUI
+import Utilities
 
-struct CryptoTrendIndicator: View {
+public struct CoinTrendIndicator: View {
     private let trendPercentage: Double
     
-    init(_ trendPercentage: Double) {
+    public init(_ trendPercentage: Double) {
         self.trendPercentage = trendPercentage
     }
     
-    var body: some View {
+    public var body: some View {
         HStack(alignment: .firstTextBaseline, spacing: 5) {
             Image(trendPercentage >= 0 ? "trend-up" : "trend-down", bundle: .module)
                 .renderingMode(.template)
