@@ -43,10 +43,3 @@ public struct BlueButtonView: View {
         )
     }
 }
-
-#Preview {
-    VStack {
-        BlueButtonView("fetch") { }
-        BlueButtonView("fetch", title: "Withdraw") { }
-    }
-}

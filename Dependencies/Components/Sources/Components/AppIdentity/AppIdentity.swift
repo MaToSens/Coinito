@@ -5,6 +5,7 @@
 //  Created by MaTooSens on 18/01/2024.
 //
 
+import Design
 import SwiftUI
 
 public struct AppIdentityView: View {

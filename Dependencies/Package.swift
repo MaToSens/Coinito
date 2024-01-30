@@ -21,7 +21,7 @@ let package = Package(
             name: "Dependencies",
             dependencies: [
                 .product(name: "Home", package: "Home"),
-                .product(name: "HomeMocks", package: "Home")
+                .product(name: "HomeMocks", package: "Home"),
             ]
         )
     ]
