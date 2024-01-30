@@ -10,20 +10,42 @@ import SwiftUI
 import Utilities
 
 public struct CoinTrendIndicatorView: View {
-    private let trendPercentage: Double
+    private let trendPercentage: Double?
+    private let textStyle: Font.TextStyle
     
-    public init(_ trendPercentage: Double) {
+    public init(
+        _ trendPercentage: Double?,
+        textStyle: Font.TextStyle = .footnote
+    ) {
         self.trendPercentage = trendPercentage
+        self.textStyle = textStyle
     }
     
     public var body: some View {
-        HStack(alignment: .firstTextBaseline, spacing: 5) {
-            Image(trendPercentage >= 0 ? "trend-up" : "trend-down", bundle: .module)
+        if let trendPercentage {
+            buildTrendView(trendPercentage)
+        } else {
+            buildNoDataView()
+        }
+    }
+    
+    @ViewBuilder
+    private func buildTrendView(_ trendPercentage: Double) -> some View {
+        let isTrendUp = trendPercentage >= 0
+        
+        HStack(alignment: .firstTextBaseline, spacing: 0) {
+            Image(isTrendUp ? "trend-up" : "trend-down")
                 .renderingMode(.template)
             
-            Text("\(trendPercentage.asPercentString())")
-                .appFont(.bold, relativeTo: .footnote)
+            Text(abs(trendPercentage).asPercentString())
+                .appFont(.bold, relativeTo: textStyle)
         }
-        .foregroundStyle(trendPercentage >= 0 ? .green : .red)
+        .foregroundStyle(isTrendUp ? Color.green : Color.red)
+    }
+    
+    private func buildNoDataView() -> some View {
+        Text("-")
+            .appFont(.bold, relativeTo: textStyle)
+            .foregroundStyle(.secondary)
     }
 }

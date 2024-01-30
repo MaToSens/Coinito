@@ -12,6 +12,7 @@ let package = Package(
         ),
     ],
     dependencies: [
+        .package(path: "../Coin"),
         .package(path: "../Design"),
         .package(path: "../Utilities")
     ],
@@ -19,6 +20,7 @@ let package = Package(
         .target(
             name: "Components",
             dependencies: [
+                .product(name: "Coin", package: "Coin"),
                 .product(name: "Design", package: "Design"),
                 .product(name: "Utilities", package: "Utilities")
             ],
