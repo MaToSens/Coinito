@@ -16,7 +16,7 @@ public extension Bundle {
         readFile(fileName: fileName, withExtension: fileExtension)
             .decode(
                 type: T.self,
-                decoder: JSONDecoder(withKeyDecodingStategy: .convertFromSnakeCase)
+                decoder: JSONDecoder(withKeyDecodingStrategy: .convertFromSnakeCase)
             )
             .eraseToAnyPublisher()
     }
