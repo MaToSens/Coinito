@@ -16,6 +16,7 @@ public protocol ClientInterface {
     // Endpoint
     func fetch<Endpoint: EndpointInterface>(endpoint: Endpoint) -> AnyPublisher<Data, HTTPError>
     func fetchDecodedObject<Endpoint: EndpointInterface, Response: Decodable>(endpoint: Endpoint) -> AnyPublisher<Response, HTTPError>
+    func fetchDecodedObjects<Endpoint: EndpointInterface, Response: Decodable>(endpoint: Endpoint) -> AnyPublisher<[Response], HTTPError>
 }
 
 public protocol EndpointInterface {

@@ -60,4 +60,15 @@ extension Client {
             .mapError { HTTPError.invalidDecoding($0) }
             .eraseToAnyPublisher()
     }
+    
+    func fetchDecodedObjects<Endpoint: EndpointInterface, Response: Decodable>(endpoint: Endpoint) -> AnyPublisher<[Response], HTTPError> {
+        URLSession
+            .downloadPublisher(baseURLString: baseURLString, endpoint: endpoint)
+            .decode(
+                type: [Response].self,
+                decoder: JSONDecoder(withKeyDecodingStrategy: .convertFromSnakeCase)
+            )
+            .mapError { HTTPError.invalidDecoding($0) }
+            .eraseToAnyPublisher()
+    }
 }

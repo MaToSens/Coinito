@@ -8,31 +8,26 @@
 import Combine
 import Foundation
 
-public protocol LocalFileManagerInterface {
-    func save(_ data: Data, folderName: String, fileName: String, withExtension fileExtension: String) throws
-    func get(_ folderName: String, fileName: String, withExtension fileExtension: String) -> AnyPublisher<Data, LocalFileManagerError>
+public protocol FileStorageManagerInterface {
+    func save(
+        _ data: Data,
+        folderName: String,
+        fileName: String,
+        withExtension fileExtension: String
+    ) throws
+    
+    func retrieve(
+        _ folderName: String,
+        fileName: String,
+        withExtension fileExtension: String)
+    -> AnyPublisher<Data, FileStorageManagerError>
 }
 
 // MARK: Errors -
-public enum DatabaseError: LocalizedError {
-    case unableToFind(Error)
-    case unableToSave(Error)
-    case invalidContainer
-
-    public var errorDescription: String? {
-        switch self {
-        case .unableToFind(let error): return "Error fetching Portfolio Entities! \(error.localizedDescription)"
-        case .unableToSave(let error): return "Error saving to Core Data. \(error.localizedDescription)"
-        case .invalidContainer: return "Invalid or missing persistent container."
-        }
-    }
-}
-
-public enum LocalFileManagerError: Error {
-    case unableToAccessImage
+public enum FileStorageManagerError: Error {
     case unableToAccessURL
-    case unableToConvertToData
-    case unableToCreateDictionary
+    case unableToConvertToData(Error)
+    case unableToCreateDirectory
     case unableToFind
     case unableToSave
 }
