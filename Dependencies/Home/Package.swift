@@ -24,8 +24,9 @@ let package = Package(
     ],
     dependencies: [
         .package(path: "../Coin"),
-        .package(path: "../Design"),
-        .package(path: "../DependencyInjection")
+        .package(path: "../Components"),
+        .package(path: "../DependencyInjection"),
+        .package(path: "../Utilities")
     ],
     targets: [
         .target(
@@ -39,7 +40,8 @@ let package = Package(
             dependencies: [ 
                 "HomeInterface",
                 .product(name: "Coin", package: "Coin"),
-                .product(name: "Design", package: "Design")
+                .product(name: "Components", package: "Components"),
+                .product(name: "Utilities", package: "Utilities")
             ]
         ),
         .target(

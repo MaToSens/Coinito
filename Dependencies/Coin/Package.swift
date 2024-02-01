@@ -22,6 +22,8 @@ let package = Package(
         ),
     ],
     dependencies: [ 
+        .package(path: "../CoinBackend"),
+        .package(path: "../Database"),
         .package(path: "../DependencyInjection")
     ],
     targets: [
@@ -34,12 +36,15 @@ let package = Package(
         .target(
             name: "Coin",
             dependencies: [
-                "CoinInterface"
+                "CoinInterface",
+                .product(name: "CoinBackend", package: "CoinBackend"),
+                .product(name: "Database", package: "Database")
             ]
         ),
         .target(
             name: "CoinMocks",
-            dependencies: ["Coin"]
+            dependencies: ["Coin"],
+            resources: [.process("Resources/")]
         ),
         .testTarget(
             name: "CoinTests",
