@@ -11,8 +11,6 @@ import Foundation
 import Utilities
 
 final class Client: ClientInterface {
-    private let baseURLString: String = "https://api.coingecko.com/api/v3"
-    
     func fetch(_ urlString: String) -> AnyPublisher<Data, HTTPError> {
         URLSession
             .downloadPublisher(for: urlString)
@@ -26,7 +24,7 @@ final class Client: ClientInterface {
                  type: Response.self,
                  decoder: JSONDecoder(withKeyDecodingStrategy: .convertFromSnakeCase)
              )
-             .mapError { HTTPError.invalidDecoding($0) }
+             .mapError { $0 as? HTTPError ?? .invalidDecoding($0) }
              .eraseToAnyPublisher()
     }
     
@@ -37,7 +35,7 @@ final class Client: ClientInterface {
                 type: [Response].self,
                 decoder: JSONDecoder(withKeyDecodingStrategy: .convertFromSnakeCase)
             )
-            .mapError { HTTPError.invalidDecoding($0) }
+            .mapError { $0 as? HTTPError ?? .invalidDecoding($0) }
             .eraseToAnyPublisher()
     }
 }
@@ -46,29 +44,29 @@ final class Client: ClientInterface {
 extension Client {
     func fetch<Endpoint: EndpointInterface>(endpoint: Endpoint) -> AnyPublisher<Data, HTTPError> {
         URLSession
-            .downloadPublisher(baseURLString: baseURLString, endpoint: endpoint)
+            .downloadPublisher(endpoint: endpoint)
             .eraseToAnyPublisher()
     }
     
     func fetchDecodedObject<Endpoint: EndpointInterface, Response: Decodable>(endpoint: Endpoint) -> AnyPublisher<Response, HTTPError> {
         URLSession
-            .downloadPublisher(baseURLString: baseURLString, endpoint: endpoint)
+            .downloadPublisher(endpoint: endpoint)
             .decode(
                 type: Response.self,
                 decoder: JSONDecoder(withKeyDecodingStrategy: .convertFromSnakeCase)
             )
-            .mapError { HTTPError.invalidDecoding($0) }
+            .mapError { $0 as? HTTPError ?? .invalidDecoding($0) }
             .eraseToAnyPublisher()
     }
     
     func fetchDecodedObjects<Endpoint: EndpointInterface, Response: Decodable>(endpoint: Endpoint) -> AnyPublisher<[Response], HTTPError> {
         URLSession
-            .downloadPublisher(baseURLString: baseURLString, endpoint: endpoint)
+            .downloadPublisher(endpoint: endpoint)
             .decode(
                 type: [Response].self,
                 decoder: JSONDecoder(withKeyDecodingStrategy: .convertFromSnakeCase)
             )
-            .mapError { HTTPError.invalidDecoding($0) }
+            .mapError { $0 as? HTTPError ?? .invalidDecoding($0) }
             .eraseToAnyPublisher()
     }
 }

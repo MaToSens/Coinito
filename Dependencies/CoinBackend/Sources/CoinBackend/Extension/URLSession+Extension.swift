@@ -25,12 +25,9 @@ extension URLSession {
             .eraseToAnyPublisher()
     }
     
-    static func downloadPublisher<Endpoint: EndpointInterface>(
-        baseURLString: String,
-        endpoint: Endpoint
-    ) -> AnyPublisher<Data, HTTPError> {
+    static func downloadPublisher<Endpoint: EndpointInterface>(endpoint: Endpoint) -> AnyPublisher<Data, HTTPError> {
         do {
-            let url = try buildURL(baseURLString: baseURLString, endpoint: endpoint)
+            let url = try buildURL(endpoint: endpoint)
             
             return URLSession
                 .shared
@@ -46,7 +43,8 @@ extension URLSession {
     }
     
     // MARK: Helper functions
-    private static func buildURL<Endpoint: EndpointInterface>(baseURLString: String, endpoint: Endpoint) throws -> URL {
+    private static func buildURL<Endpoint: EndpointInterface>(endpoint: Endpoint) throws -> URL {
+        let baseURLString: String = "https://api.coingecko.com/api/v3"
         let path = buildPath(from: endpoint)
         
         guard let url = URL(
@@ -66,7 +64,10 @@ extension URLSession {
         return components.joined(separator: "/")
     }
     
-    private static func validateResponse(data: Data, response: URLResponse) throws -> Data {
+    private static func validateResponse(
+        data: Data,
+        response: URLResponse
+    ) throws -> Data {
         guard let httpResponse = response as? HTTPURLResponse else {
             throw HTTPError.invalidResponse
         }
