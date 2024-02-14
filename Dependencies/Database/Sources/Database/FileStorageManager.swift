@@ -13,14 +13,18 @@ final class FileStorageManager: FileStorageManagerInterface {
     private let fileManager = FileManager.default
     
     func save(
-        _ data: Data,
+        data: Data,
         folderName: String,
         fileName: String,
         withExtension fileExtension: String
     ) throws {
         try createFolderIfNeeded(folderName)
         
-        let fileURL = try urlForData(folderName: folderName, fileName: fileName, withExtension: fileExtension)
+        let fileURL = try urlForData(
+            folderName: folderName,
+            fileName: fileName,
+            withExtension: fileExtension
+        )
         
         do {
             try data.write(to: fileURL)
@@ -30,24 +34,28 @@ final class FileStorageManager: FileStorageManagerInterface {
     }
     
     func retrieve(
-        _ folderName: String,
+        folderName: String,
         fileName: String,
         withExtension fileExtension: String
     ) -> AnyPublisher<Data, FileStorageManagerError> {
         do {
-            let fileURL = try urlForData(folderName: folderName, fileName: fileName, withExtension: fileExtension)
+            let fileURL = try urlForData(
+                folderName: folderName,
+                fileName: fileName,
+                withExtension: fileExtension
+            )
         
             guard fileManager.fileExists(atPath: fileURL.path()) else {
                 throw FileStorageManagerError.unableToFind
             }
             
-            let data = try Data(contentsOf: fileURL)
+            let data = try Data(contentsOf: fileURL )
 
             return Just(data)
                 .setFailureType(to: FileStorageManagerError.self)
                 .eraseToAnyPublisher()
         } catch {
-            return Fail(error: .unableToConvertToData(error))
+            return Fail(error: error as? FileStorageManagerError ?? .unableToConvertToData(error))
                 .eraseToAnyPublisher()
         }
     }
@@ -58,7 +66,7 @@ private extension FileStorageManager {
     func createFolderIfNeeded(_ folderName: String) throws {
         let folderPath = try urlForFolder(folderName).path()
         
-        if !FileManager.default.fileExists(atPath: folderPath) {
+        if !fileManager.fileExists(atPath: folderPath) {
             do {
                 try fileManager.createDirectory(atPath: folderPath, withIntermediateDirectories: true)
             } catch {
@@ -72,11 +80,15 @@ private extension FileStorageManager {
         fileName: String,
         withExtension fileExtension: String
     ) throws -> URL {
-        try urlForFolder(folderName).appending(path: fileName + fileExtension)
+        try urlForFolder(folderName)
+            .appending(path: fileName + fileExtension)
     }
     
     func urlForFolder(_ folderName: String) throws -> URL {
-        guard let url = fileManager.urls(for: .cachesDirectory, in: .userDomainMask).first else {
+        guard let url = fileManager.urls(
+            for: .cachesDirectory,
+            in: .userDomainMask
+        ).first else {
             throw FileStorageManagerError.unableToAccessURL
         }
         

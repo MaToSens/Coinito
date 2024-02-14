@@ -10,17 +10,17 @@ import Foundation
 
 public protocol FileStorageManagerInterface {
     func save(
-        _ data: Data,
+        data: Data,
         folderName: String,
         fileName: String,
         withExtension fileExtension: String
     ) throws
     
     func retrieve(
-        _ folderName: String,
+        folderName: String,
         fileName: String,
-        withExtension fileExtension: String)
-    -> AnyPublisher<Data, FileStorageManagerError>
+        withExtension fileExtension: String
+    ) -> AnyPublisher<Data, FileStorageManagerError>
 }
 
 // MARK: Errors -
